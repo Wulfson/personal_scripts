@@ -18,6 +18,8 @@ import sys
 
 name = sys.argv[1]
 group_num = sys.argv[2]
+
+dryrun = False
 if len(sys.argv) > 3:
     dryrun = True
 
@@ -80,5 +82,5 @@ for line in sys.stdin:
         if not os.path.isdir(directory):
             os.mkdir(directory)
 
-        if not os.path.islink(new_name):
+        if not os.path.islink(new_file):
             os.symlink(path, new_file)
