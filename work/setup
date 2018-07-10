@@ -1,0 +1,29 @@
+export SETUP_PATH=/transfer
+cp $SETUP_PATH/.gitconfig ~/.gitconfig
+cp $SETUP_PATH/.aws ~/.aws -R
+mkdir -p ~/.ssh/keys
+chmod 700 ~/.ssh -R
+cp $SETUP_PATH/.ssh ~/.ssh -R
+sudo apt-get install git
+git clone git@github.com:Wulfson/personal_scripts.git
+
+sudo su -
+
+mkdir -p /remote/jlh-work.dev
+mkdir -p /remote/rando
+chown jhancock:jhancock -R /remote
+
+wget -P /tmp -nc https://dl.winehq.org/wine-builds/Release.key
+apt-key add /tmp/Release.key
+apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+
+apt-get update
+apt-get upgrade
+apt-get install vim sshfs
+apt-get install --install-recommends winehq-stable
+
+apt-get install libxss1 libappindicator1 libindicator7
+wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
+dpkg -i /tmp/google-chrome*.deb
+
+winecfg
