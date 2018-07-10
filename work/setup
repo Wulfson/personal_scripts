@@ -13,17 +13,20 @@ mkdir -p /remote/jlh-work.dev
 mkdir -p /remote/rando
 chown jhancock:jhancock -R /remote
 
+# Wine repo
 wget -P /tmp -nc https://dl.winehq.org/wine-builds/Release.key
 apt-key add /tmp/Release.key
 apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 
 apt-get update
 apt-get upgrade
-apt-get install vim sshfs
+apt-get install vim sshfs rar unrar
 apt-get install --install-recommends winehq-stable
 
+# Chrome setup
 apt-get install libxss1 libappindicator1 libindicator7
 wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
 dpkg -i /tmp/google-chrome*.deb
 
+# Drop sudo
 winecfg
