@@ -7,6 +7,24 @@ cp $SETUP_PATH/.ssh ~/.ssh -R
 sudo apt-get install git
 git clone git@github.com:Wulfson/personal_scripts.git
 
+# Keyboard shortcuts
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-1 '<Mod4>1'
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-2 '<Mod4>2'
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-3 '<Mod4>3'
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-4 '<Mod4>4'
+
+gsettings set org.mate.Marco.window-keybindings maximize-horizontally '<Shift><Mod4>Right'
+gsettings set org.mate.Marco.window-keybindings maximize-vertically '<Shift><Mod4>Up'
+gsettings set org.mate.Marco.window-keybindings minimize '<Mod4>Down'
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-1 '<Shift><Mod4>exclam'
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-2 '<Shift><Mod4>at'
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-3 '<Shift><Mod4>numbersign'
+gsettings set org.mate.Marco.window-keybindings switch-to-workspace-4 '<Shift><Mod4>dollar'
+gsettings set org.mate.Marco.window-keybindings tile-to-side-e '<Mod4>Right'
+gsettings set org.mate.Marco.window-keybindings tile-to-side-w '<Mod4>Left'
+gsettings set org.mate.Marco.window-keybindings toggle-maximized '<Mod4>Up'
+gsettings set org.mate.Marco.window-keybindings toggle-on-all-workspaces '<Shift><Mod4>Down'
+
 sudo su -
 
 mkdir -p /remote/jlh-work.dev
