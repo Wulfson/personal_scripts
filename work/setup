@@ -1,11 +1,13 @@
 export SETUP_PATH=/transfer
+export REPO_PATH=~/personal_scripts
+export VENV_PATH=~/.venv
 cp $SETUP_PATH/.gitconfig ~/.gitconfig
 cp $SETUP_PATH/.aws ~/.aws -R
-mkdir -p ~/.ssh/keys
+mkdir -p ~/.ssh/keys $VENV_PATH
 chmod 700 ~/.ssh -R
 cp $SETUP_PATH/.ssh ~/.ssh -R
 sudo apt-get install git
-git clone git@github.com:Wulfson/personal_scripts.git
+git clone git@github.com:Wulfson/personal_scripts.git $REPO_PATH
 
 # Keyboard shortcuts
 gsettings set org.mate.Marco.window-keybindings switch-to-workspace-1 '<Mod4>1'
@@ -25,26 +27,49 @@ gsettings set org.mate.Marco.window-keybindings tile-to-side-w '<Mod4>Left'
 gsettings set org.mate.Marco.window-keybindings toggle-maximized '<Mod4>Up'
 gsettings set org.mate.Marco.window-keybindings toggle-on-all-workspaces '<Shift><Mod4>Down'
 
-sudo su -
+sudo mkdir -p /remote/jlh-work.dev
+sudo mkdir -p /remote/rando
+sudo chown jhancock:jhancock -R /remote
 
-mkdir -p /remote/jlh-work.dev
-mkdir -p /remote/rando
-chown jhancock:jhancock -R /remote
+sudo rm /etc/fonts/conf.d/10*
+sudo rm 10-scale-bitmap-fonts.conf
+sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+sudo cp $REPO_PATH/work/fonts/50-enable-dina-bitmap.conf /etc/fonts/conf.d/50-enable-dina-bitmap.conf
+sudo cp $SETUP_PATH/fonts/Dina_r400-* /usr/local/share/fonts
+sudo fc-cache -fv
 
 # Wine repo
-wget -P /tmp -nc https://dl.winehq.org/wine-builds/Release.key
-apt-key add /tmp/Release.key
-apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+sudo wget -P /tmp -nc https://dl.winehq.org/wine-builds/Release.key
+sudo apt-key add /tmp/Release.key
+sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 
-apt-get update
-apt-get upgrade
-apt-get install vim sshfs rar unrar
-apt-get install --install-recommends winehq-stable
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install vim sshfs rar unrar python3-dev python3-pip libpq-dev
+sudo apt-get install --install-recommends winehq-stable
+sudo python3 -m pip install -U setuptools wheel pip virtualenv
 
 # Chrome setup
-apt-get install libxss1 libappindicator1 libindicator7
-wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
-dpkg -i /tmp/google-chrome*.deb
+sudo apt-get install libxss1 libappindicator1 libindicator7
+sudo wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
+sudo dpkg -i /tmp/google-chrome*.deb
 
-# Drop sudo
+virtualenv -p python3 $VENV_PATH/pgadmin4
+#https://www.pgadmin.org/download/pgadmin-4-python-wheel/
+$VENV_PATH/pgadmin4/bin/pip3 install https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v3.1/pip/pgadmin4-3.1-py2.py3-none-any.whl
+#https://askubuntu.com/questions/831262/how-to-install-pgadmin-4-in-desktop-mode-on-ubuntu
+
 winecfg
+
+# add bitmap font to HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Fonts
+# Z:\usr\local\share\fonts\Dina_r400-8.bdf
+wine regedit
+
+# docker
+# https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
+apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# can verify key with apt-key fingerprint
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt update
+apt install docker-ce docker-ce-cli containerd.io
