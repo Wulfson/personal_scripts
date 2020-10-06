@@ -16,6 +16,34 @@ import os
 import re
 import sys
 
+from enum import Enum
+
+
+class Printer(Enum):
+    """
+    A simple class to print colorized CLI messages without adding any external dependencies.
+    Usage: Printer.{color}('Message')
+    Example: Printer.red('Everything is horrible! What have you done!?')
+    """
+
+    red = "\033[1;31m"
+    green = "\033[1;32m"
+    yellow = "\033[1;33m"
+    blue = "\033[1;34m"
+    magenta = "\033[1;35m"
+    cyan = "\033[1;36m"
+    reset = "\033[0m"
+
+    def __call__(self, *messages):
+        print(
+            "{color_sequence}{message}{reset_sequence}".format(
+                color_sequence=self.value,
+                message="\n".join(messages),
+                reset_sequence=Printer.reset.value,
+            )
+        )
+
+
 name = sys.argv[1]
 group_num = sys.argv[2]
 
@@ -76,7 +104,7 @@ for line in sys.stdin:
     )
 
     new_file = directory + new_name
-    print(new_file)
+    Printer.cyan(new_file)
 
     if not dryrun:
         if not os.path.isdir(directory):

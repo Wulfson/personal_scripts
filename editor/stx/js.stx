@@ -49,6 +49,7 @@ in
 instanceof
 int
 interface
+let
 long
 native
 new
