@@ -19,31 +19,30 @@
 #SCRIPT_BEGIN=<?
 #SCRIPT_END=?>
 #SKIP_QUOTE=y
-#HEREDOC=<<<EOF
+#HEREDOC=<<<EOT
 #NUMBER_PATTERN=cpp
 
 #KEYWORD=Reserved words
 $
 @
 \
-;Literals
-true
-false
-NULL
 ;PHP Keywords
 __CLASS__
+__DIR__
 __FILE__
 __FUNCTION__
 __LINE__
 __METHOD__
+__NAMESPACE__
+__TRAIT__
 abstract
 and
 array
 as
 break
+callable
 case
 catch
-cfunction
 class
 clone
 const
@@ -63,25 +62,28 @@ endif
 endswitch
 endwhile
 eval
-exception
 exit
 extends
 final
+finally
+fn
 for
 foreach
 function
 global
+goto
 if
 implements
 include
 include_once
+instanceof
+insteadof
 interface
 isset
 list
+namespace
 new
-old_function
 or
-php_user_filter
 print
 private
 protected
@@ -91,278 +93,97 @@ require_once
 return
 static
 switch
-this
 throw
+trait
 try
 unset
 use
 var
 while
 xor
+yield
+yield from
 
-;Predefined constants
-ABDAY_1
-ABDAY_2
-ABDAY_3
-ABDAY_4
-ABDAY_5
-ABDAY_6
-ABDAY_7
-ABMON_1
-ABMON_10
-ABMON_11
-ABMON_12
-ABMON_2
-ABMON_3
-ABMON_4
-ABMON_5
-ABMON_6
-ABMON_7
-ABMON_8
-ABMON_9
-ALT_DIGITS
-AM_STR
-ASSERT_ACTIVE
-ASSERT_BAIL
-ASSERT_CALLBACK
-ASSERT_QUIET_EVAL
-ASSERT_WARNING
-CASE_LOWER
-CASE_UPPER
-CHAR_MAX
-CODESET
-CONNECTION_ABORTED
-CONNECTION_NORMAL
-CONNECTION_TIMEOUT
-COUNT_NORMAL
-COUNT_RECURSIVE
-CREDITS_ALL
-CREDITS_DOCS
-CREDITS_FULLPAGE
-CREDITS_GENERAL
-CREDITS_GROUP
-CREDITS_MODULES
-CREDITS_QA
-CREDITS_SAPI
-CRNCYSTR
-CRYPT_BLOWFISH
-CRYPT_EXT_DES
-CRYPT_MD5
-CRYPT_SALT_LENGTH
-CRYPT_STD_DES
-CURRENCY_SYMBOL
-DAY_1
-DAY_2
-DAY_3
-DAY_4
-DAY_5
-DAY_6
-DAY_7
-DECIMAL_POINT
+;Predefined classes
+ArithmeticError
+AssertionError
+Closure
+Directory
+DivisionByZeroError
+Error
+ErrorException
+Exception
+Generator
+ParseError
+Throwable
+TypeError
+__PHP_Incomplete_Class
+parent
+php_user_filter
+self
+static
+stdClass
+
+;Core Predefined constants
 DEFAULT_INCLUDE_PATH
-DIRECTORY_SEPARATOR
-D_FMT
-D_T_FMT
-ENT_COMPAT
-ENT_NOQUOTES
-ENT_QUOTES
-ERA
-ERA_D_FMT
-ERA_D_T_FMT
-ERA_T_FMT
-ERA_YEAR
-EXTR_IF_EXISTS
-EXTR_OVERWRITE
-EXTR_PREFIX_ALL
-EXTR_PREFIX_IF_EXISTS
-EXTR_PREFIX_INVALID
-EXTR_PREFIX_SAME
-EXTR_SKIP
 E_ALL
 E_COMPILE_ERROR
 E_COMPILE_WARNING
 E_CORE_ERROR
 E_CORE_WARNING
+E_DEPRECATED
 E_ERROR
 E_NOTICE
 E_PARSE
+E_RECOVERABLE_ERROR
 E_STRICT
+E_USER_DEPRECATED
 E_USER_ERROR
 E_USER_NOTICE
 E_USER_WARNING
 E_WARNING
-FRAC_DIGITS
-GROUPING
-HTML_ENTITIES
-HTML_SPECIALCHARS
-INFO_ALL
-INFO_CONFIGURATION
-INFO_CREDITS
-INFO_ENVIRONMENT
-INFO_GENERAL
-INFO_LICENSE
-INFO_MODULES
-INFO_VARIABLES
-INI_ALL
-INI_PERDIR
-INI_SYSTEM
-INI_USER
-INT_CURR_SYMBOL
-INT_FRAC_DIGITS
-LC_ALL
-LC_COLLATE
-LC_CTYPE
-LC_MESSAGES
-LC_MONETARY
-LC_NUMERIC
-LC_TIME
-LOCK_EX
-LOCK_NB
-LOCK_SH
-LOCK_UN
-LOG_ALERT
-LOG_AUTH
-LOG_AUTHPRIV
-LOG_CONS
-LOG_CRIT
-LOG_CRON
-LOG_DAEMON
-LOG_DEBUG
-LOG_EMERG
-LOG_ERR
-LOG_INFO
-LOG_KERN
-LOG_LOCAL0
-LOG_LOCAL1
-LOG_LOCAL2
-LOG_LOCAL3
-LOG_LOCAL4
-LOG_LOCAL5
-LOG_LOCAL6
-LOG_LOCAL7
-LOG_LPR
-LOG_MAIL
-LOG_NDELAY
-LOG_NEWS
-LOG_NOTICE
-LOG_NOWAIT
-LOG_ODELAY
-LOG_PERROR
-LOG_PID
-LOG_SYSLOG
-LOG_USER
-LOG_UUCP
-LOG_WARNING
-MON_1
-MON_10
-MON_11
-MON_12
-MON_2
-MON_3
-MON_4
-MON_5
-MON_6
-MON_7
-MON_8
-MON_9
-MON_DECIMAL_POINT
-MON_GROUPING
-MON_THOUSANDS_SEP
-M_1_PI
-M_2_PI
-M_2_SQRTPI
-M_E
-M_LN10
-M_LN2
-M_LOG10E
-M_LOG2E
-M_PI
-M_PI_2
-M_PI_4
-M_SQRT1_2
-M_SQRT2
-NEGATIVE_SIGN
-NOEXPR
-NOSTR
-N_CS_PRECEDES
-N_SEP_BY_SPACE
-N_SIGN_POSN
-PATHINFO_BASENAME
-PATHINFO_DIRNAME
-PATHINFO_EXTENSION
-PATH_SEPARATOR
 PEAR_EXTENSION_DIR
-PEAR_INSTALL_DIR
+PHP_BINARY
 PHP_BINDIR
 PHP_CONFIG_FILE_PATH
-PHP_CONFIG_FILE_SCAN_DIR
-PHP_DATADIR
+PHP_DEBUG
 PHP_EOL
-PHP_EXTENSION_DIR
+PHP_EXTRA_VERSION
+PHP_FD_SETSIZE
+PHP_FLOAT_DIG
+PHP_FLOAT_EPSILON
+PHP_FLOAT_MAX
+PHP_FLOAT_MIN
 PHP_INT_MAX
+PHP_INT_MIN
 PHP_INT_SIZE
 PHP_LIBDIR
-PHP_LOCALSTATEDIR
+PHP_MAJOR_VERSION
+PHP_MANDIR
+PHP_MAXPATHLEN
+PHP_MINOR_VERSION
 PHP_OS
-PHP_OUTPUT_HANDLER_CONT
-PHP_OUTPUT_HANDLER_END
-PHP_OUTPUT_HANDLER_START
+PHP_OS_FAMILY
 PHP_PREFIX
+PHP_RELEASE_VERSION
 PHP_SAPI
 PHP_SHLIB_SUFFIX
 PHP_SYSCONFDIR
 PHP_VERSION
-PM_STR
-POSITIVE_SIGN
-P_CS_PRECEDES
-P_SEP_BY_SPACE
-P_SIGN_POSN
-RADIXCHAR
-SEEK_CUR
-SEEK_END
-SEEK_SET
-SORT_ASC
-SORT_DESC
-SORT_NUMERIC
-SORT_REGULAR
-SORT_STRING
-STR_PAD_BOTH
-STR_PAD_LEFT
-STR_PAD_RIGHT
-THOUSANDS_SEP
-THOUSEP
-T_FMT
-T_FMT_AMPM
-YESEXPR
-YESSTR
+PHP_VERSION_ID
+PHP_WINDOWS_EVENT_CTRL_BREAK
+PHP_WINDOWS_EVENT_CTRL_C
+PHP_ZTS
 __COMPILER_HALT_OFFSET__
+false
+null
+true
 
-#KEYWORD=PHP core functions
-;NET Functions
-
-;Apache-specific Functions
-apache_child_terminate
-apache_get_modules
-apache_get_version
-apache_getenv
-apache_lookup_uri
-apache_note
-apache_request_headers
-apache_reset_timeout
-apache_response_headers
-apache_setenv
-ascii2ebcdic
-ebcdic2ascii
-getallheaders
-virtual
-
-;Alternative PHP Cache
-
-;Advanced PHP debugger
-
+#KEYWORD=PHP core/bundled functions
 ;Array Functions
 array_change_key_case
 array_chunk
+array_column
 array_combine
 array_count_values
 array_diff_assoc
@@ -370,6 +191,7 @@ array_diff_key
 array_diff_uassoc
 array_diff_ukey
 array_diff
+array_fill_keys
 array_fill
 array_filter
 array_flip
@@ -379,6 +201,8 @@ array_intersect_uassoc
 array_intersect_ukey
 array_intersect
 array_key_exists
+array_key_first
+array_key_last
 array_keys
 array_map
 array_merge_recursive
@@ -390,6 +214,8 @@ array_product
 array_push
 array_rand
 array_reduce
+array_replace_recursive
+array_replace
 array_reverse
 array_search
 array_shift
@@ -417,6 +243,7 @@ each
 end
 extract
 in_array
+key_exists
 key
 krsort
 ksort
@@ -436,27 +263,17 @@ uasort
 uksort
 usort
 
-;Aspell functions (depreciated)
-
-;BCMath Arbitrary Precision Mathematics Functions
-
-;PHP bytecode Compiler
-
-;Bzip2 Compression Functions
-
-;Calendar functions
-
-;CCVS API Functions (removed as of 4.3.0)
-
-;Class/Object Functions
-call_user_method_array
-call_user_method
+;Classes/Object Functions
+__autoload
+class_alias
 class_exists
+get_called_class
 get_class_methods
 get_class_vars
 get_class
 get_declared_classes
 get_declared_interfaces
+get_declared_traits
 get_object_vars
 get_parent_class
 interface_exists
@@ -464,87 +281,49 @@ is_a
 is_subclass_of
 method_exists
 property_exists
+trait_exists
 
-;Classkit Functions
+;CSPRNG Functions
+random_bytes
+random_int
 
-;ClibPDF functions
+;Date and Time Classes
+DateTime
+DateTimeImmutable
+DateTimeInterface
+DateTimeZone
+DateInterval
+DatePeriod
 
-;COM and .Net (Windows)
-COM
-DOTNET
-VARIANT
-com_addref
-com_create_guid
-com_event_sink
-com_get_active_object
-com_get
-com_invoke
-com_isenum
-com_load_typelib
-com_load
-com_message_pump
-com_print_typeinfo
-com_propget
-com_propput
-com_propset
-com_release
-com_set
-variant_abs
-variant_add
-variant_and
-variant_cast
-variant_cat
-variant_cmp
-variant_date_from_timestamp
-variant_date_to_timestamp
-variant_div
-variant_eqv
-variant_fix
-variant_get_type
-variant_idiv
-variant_imp
-variant_int
-variant_mod
-variant_mul
-variant_neg
-variant_not
-variant_or
-variant_pow
-variant_round
-variant_set_type
-variant_set
-variant_sub
-variant_xor
-
-;Crack functions
-
-;Character type functions
-ctype_alnum
-ctype_alpha
-ctype_cntrl
-ctype_digit
-ctype_graph
-ctype_lower
-ctype_print
-ctype_punct
-ctype_space
-ctype_upper
-ctype_xdigit
-
-;CURL, Client URL Library Functions
-
-;Cybercash payment functions (removed as of PHP 4.3.0)
-
-;Credit Mutuel CyberMUT functions
-
-;Cyrus IMAP administration functions (not documented)
-
-;Date and Time functions
+;Date/Time Functions
 checkdate
+date_add
+date_create_from_format
+date_create_immutable_from_format
+date_create_immutable
+date_create
+date_date_set
 date_default_timezone_get
 date_default_timezone_set
+date_diff
+date_format
+date_get_last_errors
+date_interval_create_from_date_string
+date_interval_format
+date_isodate_set
+date_modify
+date_offset_get
+date_parse_from_format
+date_parse
+date_sub
+date_sun_info
 date_sunrise
 date_sunset
+date_time_set
+date_timestamp_get
+date_timestamp_set
+date_timezone_get
+date_timezone_set
 date
 getdate
 gettimeofday
@@ -559,51 +338,35 @@ strftime
 strptime
 strtotime
 time
+timezone_abbreviations_list
+timezone_identifiers_list
+timezone_location_get
+timezone_name_from_abbr
+timezone_name_get
+timezone_offset_get
+timezone_open
+timezone_transitions_get
+timezone_version_get
 
-;DB++ Functions
+;Directory Classes
+Directory
 
-;Database (dbm-style) abstraction layer functions
-
-;dBase functions
-
-;DBM Functions (depreciated)
-
-;dbx functions
-
-;Direct IO functions
-
-;Directory functions
+;Directory Functions
 chdir
 chroot
-dir
 closedir
+dir
 getcwd
 opendir
 readdir
 rewinddir
 scandir
 
-;DOM functions
-dom_import_simplexml
-DOMAttr
-DOMCharacterData
-DOMComment
-DOMDocument
-DOMElement
-DOMEntityReference
-DOMImplementation
-DOMNamedNodeMap
-DOMNode
-DOMNodelist
-DOMProcessingInstruction
-DOMText
-DOMXPath
-
-;DOM XML Functions
-
-;Error Handling and Logging Functions
+;Error Handling Functions
 debug_backtrace
 debug_print_backtrace
+error_clear_last
+error_get_last
 error_log
 error_reporting
 restore_error_handler
@@ -613,19 +376,20 @@ set_exception_handler
 trigger_error
 user_error
 
-;Exif Functions
+;Program execution Functions
+escapeshellarg
+escapeshellcmd
+exec
+passthru
+proc_close
+proc_get_status
+proc_nice
+proc_open
+proc_terminate
+shell_exec
+system
 
-;Expect Functions
-
-;File alteration monitor functions
-
-;FrontBase Functions
-
-;Forms Data Format functions
-
-;filePro functions
-
-;Filesystem functions
+;Filesystem Functions
 basename
 chgrp
 chmod
@@ -679,17 +443,22 @@ is_readable
 is_uploaded_file
 is_writable
 is_writeable
+lchgrp
+lchown
 link
 linkinfo
 lstat
 mkdir
 move_uploaded_file
 parse_ini_file
+parse_ini_string
 pathinfo
 pclose
 popen
 readfile
 readlink
+realpath_cache_get
+realpath_cache_size
 realpath
 rename
 rewind
@@ -703,20 +472,21 @@ touch
 umask
 unlink
 
-;Firebird/InterBase Functions
+;Filter Functions
+filter_has_var
+filter_id
+filter_input_array
+filter_input
+filter_list
+filter_var_array
+filter_var
 
-;Firebird/Interbase Functions (PDO_FIREBIRD)
-
-;FriBiDi functions
-
-;FrontBase Functions
-
-;FTP functions
-
-;Function Handling functions
+;Function handling Functions
 call_user_func_array
 call_user_func
 create_function
+forward_static_call_array
+forward_static_call
 func_get_arg
 func_get_args
 func_num_args
@@ -726,94 +496,87 @@ register_shutdown_function
 register_tick_function
 unregister_tick_function
 
-;GNU Gettext
+;Hash Classes
+HashContext
 
-;GMP functions
-
-;gnupg Functions
-
-;Net_Gopher
-
-;hash Functions
+;Hash Functions
 hash_algos
+hash_copy
+hash_equals
 hash_file
 hash_final
+hash_hkdf
+hash_hmac_algos
 hash_hmac_file
 hash_hmac
 hash_init
+hash_pbkdf2
 hash_update_file
 hash_update_stream
 hash_update
 hash
 
-;HTTP functions
-header
-headers_list
-headers_sent
-setcookie
-setrawcookie
+;PHP Options/Info Functions
+assert_options
+assert
+cli_get_process_title
+cli_set_process_title
+dl
+extension_loaded
+gc_collect_cycles
+gc_disable
+gc_enable
+gc_enabled
+gc_mem_caches
+gc_status
+get_cfg_var
+get_current_user
+get_defined_constants
+get_extension_funcs
+get_include_path
+get_included_files
+get_loaded_extensions
+get_magic_quotes_gpc
+get_magic_quotes_runtime
+get_required_files
+get_resources
+getenv
+getlastmod
+getmygid
+getmyinode
+getmypid
+getmyuid
+getopt
+getrusage
+ini_alter
+ini_get_all
+ini_get
+ini_restore
+ini_set
+main
+memory_get_peak_usage
+memory_get_usage
+php_ini_loaded_file
+php_ini_scanned_files
+php_sapi_name
+php_uname
+phpcredits
+phpinfo
+phpversion
+putenv
+restore_include_path
+set_include_path
+set_time_limit
+sys_get_temp_dir
+version_compare
+zend_thread_id
+zend_version
 
-;Hyperwave functions
-
-;Hyperwave API functions
-
-;IBM DB2, Cloudscape and Apache Derby Functions
-
-;ICAP Functions [deprecated]
-
-;iconv functions
-
-;ID3 Functions
-
-;IIS Administration Functions
-iis_add_server
-iis_get_dir_security
-iis_get_script_map
-iis_get_server_by_comment
-iis_get_server_by_path
-iis_get_server_rights
-iis_get_service_state
-iis_remove_server
-iis_set_app_settings
-iis_set_dir_security
-iis_set_script_map
-iis_set_server_rights
-iis_start_server
-iis_start_service
-iis_stop_server
-iis_stop_service
-
-;Image functions
-
-;IMAP, POP3 and NNTP functions
-
-;Informix functions
-
-;Informix Functions (PDO_INFORMIX)
-
-;Ingres II functions
-
-;IRC Gateway Functions
-
-;PHP / Java Integration
-
-;KADM5
-
-;LDAP functions
-
-;libxml Functions
-
-;Lotus Notes Functions
-
-;LZF Functions
-
-;Mail functions
+;Mail Functions
 ezmlm_hash
 mail
 
-;mailparse functions
-
-;Mathematical Functions
+;Math Functions
 abs
 acos
 acosh
@@ -833,11 +596,13 @@ decoct
 deg2rad
 exp
 expm1
+fdiv
 floor
 fmod
 getrandmax
 hexdec
 hypot
+intdiv
 is_finite
 is_infinite
 is_nan
@@ -863,26 +628,9 @@ srand
 tan
 tanh
 
-;MaxDB PHP Extension
-
-;MCAL Functions
-
-;Mcrypt Encryption Functions
-
-;MCVE (Monetra) Payment Functions
-
-;Memcache Functions
-
-;Mhash Functions
-
-;Mimetype Functions
-
-;Ming functions for Flash
-
-;Miscellaneous Functions
+;Misc. Functions
 connection_aborted
 connection_status
-connection_timeout
 constant
 define
 defined
@@ -893,10 +641,17 @@ get_browser
 __halt_compiler
 highlight_file
 highlight_string
+hrtime
 ignore_user_abort
 pack
-php_check_syntax
 php_strip_whitespace
+sapi_windows_cp_conv
+sapi_windows_cp_get
+sapi_windows_cp_is_utf8
+sapi_windows_cp_set
+sapi_windows_generate_ctrl_event
+sapi_windows_set_ctrl_handler
+sapi_windows_vt100_support
 show_source
 sleep
 sys_getloadavg
@@ -906,33 +661,9 @@ uniqid
 unpack
 usleep
 
-;mnoGoSearch Functions
-
-;Microsoft SQL Server Functions
-
-;Microsoft SQL Server and Sybase Functions (PDO_DBLIB)
-
-;Mohawk Software Session Handler Functions
-
-;mSQL Functions
-
-;Multibyte String Functions
-
-;muscat Functions
-
-;MySQL functions
-
-;MySQL Functions (PDO_MYSQL)
-
-;MySQL Improved Extension
-
-;Ncurses terminal screen control functions
-
 ;Network Functions
 checkdnsrr
 closelog
-debugger_off
-debugger_on
 define_syslog_variables
 dns_check_record
 dns_get_mx
@@ -941,48 +672,30 @@ fsockopen
 gethostbyaddr
 gethostbyname
 gethostbynamel
+gethostname
 getmxrr
 getprotobyname
 getprotobynumber
 getservbyname
 getservbyport
+header_register_callback
+header_remove
+header
+headers_list
+headers_sent
+http_response_code
 inet_ntop
 inet_pton
 ip2long
 long2ip
 openlog
 pfsockopen
+setcookie
+setrawcookie
 socket_get_status
 socket_set_blocking
 socket_set_timeout
 syslog
-
-;Newt Functions
-
-;NSAPI-specific Functions
-nsapi_request_headers
-nsapi_response_headers
-nsapi_virtual
-
-;Object Aggregation/Composition Functions
-
-;Object property and method call overloading
-
-;Oracle functions
-
-;ODBC Functions (Unified)
-
-;ODBC and DB2 Functions (PDO_ODBC)
-
-;oggvorbis
-
-;OpenAL Audio Bindings
-
-;OpenSSL functions
-
-;Oracle Functions [deprecated]
-
-;Oracle Functions (PDO_OCI)
 
 ;Output Control Functions
 flush
@@ -1003,224 +716,152 @@ ob_start
 output_add_rewrite_var
 output_reset_rewrite_vars
 
-;Ovrimos SQL functions
+;Password Hashing Functions
+password_algos
+password_get_info
+password_hash
+password_needs_rehash
+password_verify
 
-;Paradox File Access
+;Phar Classes
+Phar
+PharData
+PharFileInfo
+PharException
 
-;Parsekit Functions
+;Reflection Classes
+Reflection
+ReflectionClass
+ReflectionZendExtension
+ReflectionExtension
+ReflectionFunction
+ReflectionFunctionAbstract
+ReflectionMethod
+ReflectionNamedType
+ReflectionObject
+ReflectionParameter
+ReflectionProperty
+ReflectionType
+ReflectionGenerator
+ReflectionReference
+Reflector
+ReflectionException
 
-;Process Control Functions
+;POSIX Regex Functions
+ereg_replace
+ereg
+eregi_replace
+eregi
+split
+spliti
+sql_regcase
 
-;Regular Expression Functions (Perl-Compatible)
-Pattern Modifiers
-Pattern Syntax
-preg_grep
-preg_match_all
-preg_match
-preg_quote
-preg_replace_callback
-preg_replace
-preg_split
-
-;PDF functions
-
-;PDO Functions
-
-;PHP Options&Information
-assert_options
-assert
-dl
-extension_loaded
-get_cfg_var
-get_current_user
-get_defined_constants
-get_extension_funcs
-get_include_path
-get_included_files
-get_loaded_extensions
-get_magic_quotes_gpc
-get_magic_quotes_runtime
-get_required_files
-getenv
-getlastmod
-getmygid
-getmyinode
-getmypid
-getmyuid
-getopt
-getrusage
-ini_alter
-ini_get_all
-ini_get
-ini_restore
-ini_set
-memory_get_usage
-php_ini_scanned_files
-php_logo_guid
-php_sapi_name
-php_uname
-phpcredits
-phpinfo
-phpversion
-putenv
-restore_include_path
-set_include_path
-set_magic_quotes_runtime
-set_time_limit
-version_compare
-zend_logo_guid
-zend_version
-
-;POSIX functions
-posix_access
-posix_ctermid
-posix_get_last_error
-posix_getcwd
-posix_getegid
-posix_geteuid
-posix_getgid
-posix_getgrgid
-posix_getgrnam
-posix_getgroups
-posix_getlogin
-posix_getpgid
-posix_getpgrp
-posix_getpid
-posix_getppid
-posix_getpwnam
-posix_getpwuid
-posix_getrlimit
-posix_getsid
-posix_getuid
-posix_isatty
-posix_kill
-posix_mkfifo
-posix_mknod
-posix_setegid
-posix_seteuid
-posix_setgid
-posix_setpgid
-posix_setsid
-posix_setuid
-posix_strerror
-posix_times
-posix_ttyname
-posix_uname
-
-;Regular Expression Functions (POSIX Extended)
-
-;PostgreSQL functions
-
-;PostgreSQL Functions (PDO_PGSQL)
-
-;Printer functions
-
-;Program Execution functions
-escapeshellarg
-escapeshellcmd
-exec
-passthru
-proc_close
-proc_get_status
-proc_nice
-proc_open
-proc_terminate
-shell_exec
-system
-
-;PostScript document creation
-
-;Pspell Functions
-
-;qtdom Functions
-
-;Radius
-
-;Rar Functions
-
-;GNU Readline
-
-;GNU Recode functions
-
-;RPM Header Reading Functions
-
-;runkit Functions
-
-;Satellite CORBA client extension [deprecated]
-
-;SDO Functions
-
-;SDO XML Data Access Service Functions
-
-;SDO Relational Data Access Service Functions
-
-;Semaphore, Shared Memory and IPC Functions
-
-;SESAM Database Functions
-
-;PostgreSQL Session Save Handler
-
-;Session Handling Functions
+;Session Functions
+session_abort
 session_cache_expire
 session_cache_limiter
 session_commit
+session_create_id
 session_decode
 session_destroy
 session_encode
+session_gc
 session_get_cookie_params
 session_id
 session_is_registered
 session_module_name
 session_name
 session_regenerate_id
+session_register_shutdown
 session_register
+session_reset
 session_save_path
 session_set_cookie_params
 session_set_save_handler
 session_start
+session_status
 session_unregister
 session_unset
 session_write_close
 
-;Shared Memory Functions
-
-;SimpleXML functions
-simplexml_import_dom
-simplexml_load_file
-simplexml_load_string
-SimpleXMLElement
-
-;SNMP Functions
-
-;SOAP Functions
-
-;Socket Functions
-
-;Standard PHP Library (SPL) Functions
+;SPL Classes
+SplDoublyLinkedList
+SplStack
+SplQueue
+SplHeap
+SplMaxHeap
+SplMinHeap
+SplPriorityQueue
+SplFixedArray
+SplObjectStorage
+AppendIterator
 ArrayIterator
-ArrayObject
 CachingIterator
-CachingRecursiveIterator
+CallbackFilterIterator
+DirectoryIterator
+EmptyIterator
+FilesystemIterator
+FilterIterator
+GlobIterator
+InfiniteIterator
+IteratorIterator
+LimitIterator
+MultipleIterator
+NoRewindIterator
+ParentIterator
+RecursiveArrayIterator
+RecursiveCachingIterator
+RecursiveCallbackFilterIterator
+RecursiveDirectoryIterator
+RecursiveFilterIterator
+RecursiveIteratorIterator
+RecursiveRegexIterator
+RecursiveTreeIterator
+RegexIterator
+Countable
+OuterIterator
+RecursiveIterator
+SeekableIterator
+BadFunctionCallException
+BadMethodCallException
+DomainException
+InvalidArgumentException
+LengthException
+LogicException
+OutOfBoundsException
+OutOfRangeException
+OverflowException
+RangeException
+RuntimeException
+UnderflowException
+UnexpectedValueException
+SplFileInfo
+SplFileObject
+SplTempFileObject
+ArrayObject
+SplObserver
+SplSubject
+
+;SPL Functions
 class_implements
 class_parents
-DirectoryIterator
-FilterIterator
+class_uses
+iterator_apply
 iterator_count
 iterator_to_array
-LimitIterator
-ParentIterator
-RecursiveDirectoryIterator
-RecursiveIteratorIterator
-SimpleXMLIterator
+spl_autoload_call
+spl_autoload_extensions
+spl_autoload_functions
+spl_autoload_register
+spl_autoload_unregister
+spl_autoload
 spl_classes
+spl_object_hash
+spl_object_id
 
-;SQLite Functions
-
-;SQLite Functions (PDO_SQLITE)
-
-;Secure Shell2 Functions
-
-;Statistics Functions
+;Stream Classes
+php_user_filter
+streamWrapper
 
 ;Stream Functions
 stream_bucket_append
@@ -1230,6 +871,8 @@ stream_bucket_prepend
 stream_context_create
 stream_context_get_default
 stream_context_get_options
+stream_context_get_params
+stream_context_set_default
 stream_context_set_option
 stream_context_set_params
 stream_copy_to_stream
@@ -1243,9 +886,15 @@ stream_get_line
 stream_get_meta_data
 stream_get_transports
 stream_get_wrappers
+stream_is_local
+stream_isatty
+stream_notification_callback
 stream_register_wrapper
+stream_resolve_include_path
 stream_select
 stream_set_blocking
+stream_set_chunk_size
+stream_set_read_buffer
 stream_set_timeout
 stream_set_write_buffer
 stream_socket_accept
@@ -1256,6 +905,8 @@ stream_socket_pair
 stream_socket_recvfrom
 stream_socket_sendto
 stream_socket_server
+stream_socket_shutdown
+stream_supports_lock
 stream_wrapper_register
 stream_wrapper_restore
 stream_wrapper_unregister
@@ -1279,12 +930,14 @@ fprintf
 get_html_translation_table
 hebrev
 hebrevc
+hex2bin
 html_entity_decode
 htmlentities
 htmlspecialchars_decode
 htmlspecialchars
 implode
 join
+lcfirst
 levenshtein
 localeconv
 ltrim
@@ -1300,6 +953,7 @@ parse_str
 print
 printf
 quoted_printable_decode
+quoted_printable_encode
 quotemeta
 rtrim
 setlocale
@@ -1309,6 +963,9 @@ similar_text
 soundex
 sprintf
 sscanf
+str_contains
+str_ends_with
+str_getcsv
 str_ireplace
 str_pad
 str_repeat
@@ -1316,6 +973,7 @@ str_replace
 str_rot13
 str_shuffle
 str_split
+str_starts_with
 str_word_count
 strcasecmp
 strchr
@@ -1356,19 +1014,12 @@ vprintf
 vsprintf
 wordwrap
 
-;Shockwave Flash Functions
-
-;Sybase Functions
-
-;TCP Wrappers Functions
-
-;Tidy Functions
+;Tokenizer Clases
+PhpToken
 
 ;Tokenizer Functions
 token_get_all
 token_name
-
-;Unicode Functions
 
 ;URL Functions
 base64_decode
@@ -1382,23 +1033,26 @@ rawurlencode
 urldecode
 urlencode
 
-;Variable Handling Functions
+;Variable handling Functions
+boolval
 debug_zval_dump
 doubleval
 empty
 floatval
 get_defined_vars
+get_resource_id
 get_resource_type
 gettype
-import_request_variables
 intval
 is_array
 is_bool
 is_callable
+is_countable
 is_double
 is_float
 is_int
 is_integer
+is_iterable
 is_long
 is_null
 is_numeric
@@ -1417,71 +1071,653 @@ unset
 var_dump
 var_export
 
-;Verisign Payflow Pro Functions
+;Apache Functions
+apache_child_terminate
+apache_get_modules
+apache_get_version
+apache_getenv
+apache_lookup_uri
+apache_note
+apache_request_headers
+apache_reset_timeout
+apache_response_headers
+apache_setenv
+getallheaders
+virtual
 
-;vpopmail Functions
+;BC Math Functions
+bcadd
+bccomp
+bcdiv
+bcmod
+bcmul
+bcpow
+bcpowmod
+bcscale
+bcsqrt
+bcsub
 
-;W32api Functions
-w32api_deftype
-w32api_init_dtype
-w32api_invoke_function
-w32api_register_function
-w32api_set_call_method
+;Calendar Functions
+cal_days_in_month
+cal_from_jd
+cal_info
+cal_to_jd
+easter_date
+easter_days
+frenchtojd
+gregoriantojd
+jddayofweek
+jdmonthname
+jdtofrench
+jdtogregorian
+jdtojewish
+jdtojulian
+jdtounix
+jewishtojd
+juliantojd
+unixtojd
 
-;WDDX Functions
+;COM Classes
+com
+dotnet
+variant
+COMPersistHelper
+com_exception
 
-;win32ps Functions
+;COM Functions
+com_create_guid
+com_event_sink
+com_get_active_object
+com_load_typelib
+com_message_pump
+com_print_typeinfo
+variant_abs
+variant_add
+variant_and
+variant_cast
+variant_cat
+variant_cmp
+variant_date_from_timestamp
+variant_date_to_timestamp
+variant_div
+variant_eqv
+variant_fix
+variant_get_type
+variant_idiv
+variant_imp
+variant_int
+variant_mod
+variant_mul
+variant_neg
+variant_not
+variant_or
+variant_pow
+variant_round
+variant_set_type
+variant_set
+variant_sub
+variant_xor
 
-;win32service Functions
+;Ctype Functions
+ctype_alnum
+ctype_alpha
+ctype_cntrl
+ctype_digit
+ctype_graph
+ctype_lower
+ctype_print
+ctype_punct
+ctype_space
+ctype_upper
+ctype_xdigit
 
-;xattr Functions
+;DBA Functions
+dba_close
+dba_delete
+dba_exists
+dba_fetch
+dba_firstkey
+dba_handlers
+dba_insert
+dba_key_split
+dba_list
+dba_nextkey
+dba_open
+dba_optimize
+dba_popen
+dba_replace
+dba_sync
 
-;xdiff Functions
+;Exif Functions
+exif_imagetype — Determine the type of an image
+exif_read_data — Reads the EXIF headers from an image file
+exif_tagname — Get the header name for an index
+exif_thumbnail — Retrieve the embedded thumbnail of an image
+read_exif_data — Alias of exif_read_data
 
-;XML Parser Functions
-utf8_decode
-utf8_encode
-xml_error_string
-xml_get_current_byte_index
-xml_get_current_column_number
-xml_get_current_line_number
-xml_get_error_code
-xml_parse_into_struct
-xml_parse
-xml_parser_create_ns
-xml_parser_create
-xml_parser_free
-xml_parser_get_option
-xml_parser_set_option
-xml_set_character_data_handler
-xml_set_default_handler
-xml_set_element_handler
-xml_set_end_namespace_decl_handler
-xml_set_external_entity_ref_handler
-xml_set_notation_decl_handler
-xml_set_object
-xml_set_processing_instruction_handler
-xml_set_start_namespace_decl_handler
-xml_set_unparsed_entity_decl_handler
+;Fileinfo Classes
+finfo
+
+;Fileinfo Functions
+finfo_buffer
+finfo_close
+finfo_file
+finfo_open
+finfo_set_flags
+mime_content_type
+
+;FTP Functions
+ftp_alloc
+ftp_append
+ftp_cdup
+ftp_chdir
+ftp_chmod
+ftp_close
+ftp_connect
+ftp_delete
+ftp_exec
+ftp_fget
+ftp_fput
+ftp_get_option
+ftp_get
+ftp_login
+ftp_mdtm
+ftp_mkdir
+ftp_mlsd
+ftp_nb_continue
+ftp_nb_fget
+ftp_nb_fput
+ftp_nb_get
+ftp_nb_put
+ftp_nlist
+ftp_pasv
+ftp_put
+ftp_pwd
+ftp_quit
+ftp_raw
+ftp_rawlist
+ftp_rename
+ftp_rmdir
+ftp_set_option
+ftp_site
+ftp_size
+ftp_ssl_connect
+ftp_systype
+
+;iconv Functions
+iconv_get_encoding
+iconv_mime_decode_headers
+iconv_mime_decode
+iconv_mime_encode
+iconv_set_encoding
+iconv_strlen
+iconv_strpos
+iconv_strrpos
+iconv_substr
+iconv
+ob_iconv_handler
+
+;GD and Image Classes
+GdImage
+
+;GD and Image Functions
+gd_info
+getimagesize
+getimagesizefromstring
+image_type_to_extension
+image_type_to_mime_type
+image2wbmp
+imageaffine
+imageaffinematrixconcat
+imageaffinematrixget
+imagealphablending
+imageantialias
+imagearc
+imagebmp
+imagechar
+imagecharup
+imagecolorallocate
+imagecolorallocatealpha
+imagecolorat
+imagecolorclosest
+imagecolorclosestalpha
+imagecolorclosesthwb
+imagecolordeallocate
+imagecolorexact
+imagecolorexactalpha
+imagecolormatch
+imagecolorresolve
+imagecolorresolvealpha
+imagecolorset
+imagecolorsforindex
+imagecolorstotal
+imagecolortransparent
+imageconvolution
+imagecopy
+imagecopymerge
+imagecopymergegray
+imagecopyresampled
+imagecopyresized
+imagecreate
+imagecreatefrombmp
+imagecreatefromgd2
+imagecreatefromgd2part
+imagecreatefromgd
+imagecreatefromgif
+imagecreatefromjpeg
+imagecreatefrompng
+imagecreatefromstring
+imagecreatefromwbmp
+imagecreatefromwebp
+imagecreatefromxbm
+imagecreatefromxpm
+imagecreatetruecolor
+imagecrop
+imagecropauto
+imagedashedline
+imagedestroy
+imageellipse
+imagefill
+imagefilledarc
+imagefilledellipse
+imagefilledpolygon
+imagefilledrectangle
+imagefilltoborder
+imagefilter
+imageflip
+imagefontheight
+imagefontwidth
+imageftbbox
+imagefttext
+imagegammacorrect
+imagegd2
+imagegd
+imagegetclip
+imagegetinterpolation
+imagegif
+imagegrabscreen
+imagegrabwindow
+imageinterlace
+imageistruecolor
+imagejpeg
+imagelayereffect
+imageline
+imageloadfont
+imageopenpolygon
+imagepalettecopy
+imagepalettetotruecolor
+imagepng
+imagepolygon
+imagerectangle
+imageresolution
+imagerotate
+imagesavealpha
+imagescale
+imagesetbrush
+imagesetclip
+imagesetinterpolation
+imagesetpixel
+imagesetstyle
+imagesetthickness
+imagesettile
+imagestring
+imagestringup
+imagesx
+imagesy
+imagetruecolortopalette
+imagettfbbox
+imagettftext
+imagetypes
+imagewbmp
+imagewebp
+imagexbm
+iptcembed
+iptcparse
+jpeg2wbmp
+png2wbmp
+
+;intl Classes
+Collator
+NumberFormatter
+Locale
+Normalizer
+MessageFormatter
+IntlCalendar
+IntlGregorianCalendar
+IntlTimeZone
+IntlDateFormatter
+ResourceBundle
+Spoofchecker
+Transliterator
+IntlBreakIterator
+IntlRuleBasedBreakIterator
+IntlCodePointBreakIterator
+IntlPartsIterator
+UConverter
+IntlChar
+IntlException
+IntlIterator
+
+;Grapheme Functions
+grapheme_extract
+grapheme_stripos
+grapheme_stristr
+grapheme_strlen
+grapheme_strpos
+grapheme_strripos
+grapheme_strrpos
+grapheme_strstr
+grapheme_substr
+
+;IDN Functions
+idn_to_ascii
+idn_to_utf8
+
+;intl Functions
+intl_error_name
+intl_get_error_code
+intl_get_error_message
+intl_is_failure
+
+;JSON Classes
+JsonException
+JsonSerializable
+
+;JSON Functions
+json_decode
+json_encode
+json_last_error_msg
+json_last_error
+
+;Multibyte String Functions
+mb_check_encoding
+mb_chr
+mb_convert_case
+mb_convert_encoding
+mb_convert_kana
+mb_convert_variables
+mb_decode_mimeheader
+mb_decode_numericentity
+mb_detect_encoding
+mb_detect_order
+mb_encode_mimeheader
+mb_encode_numericentity
+mb_encoding_aliases
+mb_ereg_match
+mb_ereg_replace_callback
+mb_ereg_replace
+mb_ereg_search_getpos
+mb_ereg_search_getregs
+mb_ereg_search_init
+mb_ereg_search_pos
+mb_ereg_search_regs
+mb_ereg_search_setpos
+mb_ereg_search
+mb_ereg
+mb_eregi_replace
+mb_eregi
+mb_get_info
+mb_http_input
+mb_http_output
+mb_internal_encoding
+mb_language
+mb_list_encodings
+mb_ord
+mb_output_handler
+mb_parse_str
+mb_preferred_mime_name
+mb_regex_encoding
+mb_regex_set_options
+mb_scrub
+mb_send_mail
+mb_split
+mb_str_split
+mb_strcut
+mb_strimwidth
+mb_stripos
+mb_stristr
+mb_strlen
+mb_strpos
+mb_strrchr
+mb_strrichr
+mb_strripos
+mb_strrpos
+mb_strstr
+mb_strtolower
+mb_strtoupper
+mb_strwidth
+mb_substitute_character
+mb_substr_count
+mb_substr
+
+;NSAPI Functions
+nsapi_request_headers
+nsapi_response_headers
+nsapi_virtual
+
+;OPcache Functions
+opcache_compile_file
+opcache_get_configuration
+opcache_get_status
+opcache_invalidate
+opcache_is_script_cached
+opcache_reset
+
+;PCNTL Functions
+pcntl_alarm
+pcntl_async_signals
+pcntl_errno
+pcntl_exec
+pcntl_fork
+pcntl_get_last_error
+pcntl_getpriority
+pcntl_setpriority
+pcntl_signal_dispatch
+pcntl_signal_get_handler
+pcntl_signal
+pcntl_sigprocmask
+pcntl_sigtimedwait
+pcntl_sigwaitinfo
+pcntl_strerror
+pcntl_wait
+pcntl_waitpid
+pcntl_wexitstatus
+pcntl_wifexited
+pcntl_wifsignaled
+pcntl_wifstopped
+pcntl_wstopsig
+pcntl_wtermsig
+
+;PCRE Functions
+preg_filter
+preg_grep
+preg_last_error_msg
+preg_last_error
+preg_match_all
+preg_match
+preg_quote
+preg_replace_callback_array
+preg_replace_callback
+preg_replace
+preg_split
+
+;PDO classes
+PDO
+PDOStatement
+PDOException
+
+;POSIX Functions
+posix_access
+posix_ctermid
+posix_errno
+posix_get_last_error
+posix_getcwd
+posix_getegid
+posix_geteuid
+posix_getgid
+posix_getgrgid
+posix_getgrnam
+posix_getgroups
+posix_getlogin
+posix_getpgid
+posix_getpgrp
+posix_getpid
+posix_getppid
+posix_getpwnam
+posix_getpwuid
+posix_getrlimit
+posix_getsid
+posix_getuid
+posix_initgroups
+posix_isatty
+posix_kill
+posix_mkfifo
+posix_mknod
+posix_setegid
+posix_seteuid
+posix_setgid
+posix_setpgid
+posix_setrlimit
+posix_setsid
+posix_setuid
+posix_strerror
+posix_times
+posix_ttyname
+posix_uname
+
+;Semaphore Functions
+ftok
+msg_get_queue
+msg_queue_exists
+msg_receive
+msg_remove_queue
+msg_send
+msg_set_queue
+msg_stat_queue
+sem_acquire
+sem_get
+sem_release
+sem_remove
+shm_attach
+shm_detach
+shm_get_var
+shm_has_var
+shm_put_var
+shm_remove_var
+shm_remove
+
+;Shared Memory Classes
+Shmop
+
+;Shared Memory Functions
+shmop_close
+shmop_delete
+shmop_open
+shmop_read
+shmop_size
+shmop_write
+
+;Socket Classes
+Socket
+AddressInfo
+
+;Socket Functions
+socket_accept
+socket_addrinfo_bind
+socket_addrinfo_connect
+socket_addrinfo_explain
+socket_addrinfo_lookup
+socket_bind
+socket_clear_error
+socket_close
+socket_cmsg_space
+socket_connect
+socket_create_listen
+socket_create_pair
+socket_create
+socket_export_stream
+socket_get_option
+socket_getopt
+socket_getpeername
+socket_getsockname
+socket_import_stream
+socket_last_error
+socket_listen
+socket_read
+socket_recv
+socket_recvfrom
+socket_recvmsg
+socket_select
+socket_send
+socket_sendmsg
+socket_sendto
+socket_set_block
+socket_set_nonblock
+socket_set_option
+socket_setopt
+socket_shutdown
+socket_strerror
+socket_write
+socket_wsaprotocol_info_export
+socket_wsaprotocol_info_import
+socket_wsaprotocol_info_release
+
+;SQLite3 Classes
+SQLite3
+SQLite3Stmt
+SQLite3Result
 
 ;XML-RPC Functions
+xmlrpc_decode_request
+xmlrpc_decode
+xmlrpc_encode_request
+xmlrpc_encode
+xmlrpc_get_type
+xmlrpc_is_fault
+xmlrpc_parse_method_descriptions
+xmlrpc_server_add_introspection_data
+xmlrpc_server_call_method
+xmlrpc_server_create
+xmlrpc_server_destroy
+xmlrpc_server_register_introspection_callback
+xmlrpc_server_register_method
+xmlrpc_set_type
 
-;XMLReader functions
-XMLReader
+;Zlib Classes
+DeflateContext
+InflateContext
 
-;xmlwriter Functions
-
-;XSL functions
-
-;XSLT Functions
-
-;YAZ Functions
-
-;YP/NIS Functions
-
-;Zip File Functions (Read Only Access)
-
-;Zlib Compression Functions
+;Zlib Functions
+deflate_add
+deflate_init
+gzclose
+gzcompress
+gzdecode
+gzdeflate
+gzencode
+gzeof
+gzfile
+gzgetc
+gzgets
+gzgetss
+gzinflate
+gzopen
+gzpassthru
+gzputs
+gzread
+gzrewind
+gzseek
+gztell
+gzuncompress
+gzwrite
+inflate_add
+inflate_get_read_len
+inflate_get_status
+inflate_init
+readgzfile
+zlib_decode
+zlib_encode
+zlib_get_coding_type
 
 #KEYWORD=Variables
 
