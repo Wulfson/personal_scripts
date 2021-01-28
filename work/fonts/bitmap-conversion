@@ -1,0 +1,12 @@
+# To convert a bitmap font from a bdf file to an otb file
+git clone https://gitlab.freedesktop.org/xorg/app/fonttosfnt.git
+
+# If you get an error about no sources, enable the deb-src lines in /etc/apt/sources.list
+sudo apt-get build-dep xfonts-utils
+
+cd fonttosfnt
+./autogen.sh
+./configure
+make
+
+./fonttosfnt -b -c -g 2 -m 2 -o outfile.otb infile.bdf

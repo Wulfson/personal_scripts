@@ -1,11 +1,9 @@
-export SETUP_PATH=/transfer
+export OLD_HOME=/transfer
 export REPO_PATH=~/personal_scripts
 export VENV_PATH=~/.venv
-cp $SETUP_PATH/.gitconfig ~/.gitconfig
-cp $SETUP_PATH/.aws ~/.aws -R
+cp -R $OLD_HOME /home
 mkdir -p ~/.ssh/keys $VENV_PATH
 chmod 700 ~/.ssh -R
-cp $SETUP_PATH/.ssh ~/.ssh -R
 sudo apt-get install git
 git clone git@github.com:Wulfson/personal_scripts.git $REPO_PATH
 
@@ -31,16 +29,14 @@ sudo mkdir -p /remote/jlh-work.dev
 sudo mkdir -p /remote/rando
 sudo chown jhancock:jhancock -R /remote
 
-sudo rm /etc/fonts/conf.d/10*
-sudo rm 10-scale-bitmap-fonts.conf
-sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+sudo rm /etc/fonts/conf.d/10-scale-bitmap-fonts.conf /etc/fonts/conf.d/70-no-bitmaps.conf
 sudo cp $REPO_PATH/work/fonts/50-enable-dina-bitmap.conf /etc/fonts/conf.d/50-enable-dina-bitmap.conf
-sudo cp $SETUP_PATH/fonts/Dina_r400-* /usr/local/share/fonts
+sudo cp $OLD_HOME/fonts/Dina_r400-* /usr/local/share/fonts
 sudo fc-cache -fv
 
 # Wine repo
-sudo wget -P /tmp -nc https://dl.winehq.org/wine-builds/Release.key
-sudo apt-key add /tmp/Release.key
+sudo wget -P /tmp -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add /tmp/winehq.key
 sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
 
 sudo apt-get update
@@ -48,11 +44,6 @@ sudo apt-get upgrade
 sudo apt-get install vim sshfs rar unrar python3-dev python3-pip libpq-dev
 sudo apt-get install --install-recommends winehq-stable
 sudo python3 -m pip install -U setuptools wheel pip virtualenv
-
-# Chrome setup
-sudo apt-get install libxss1 libappindicator1 libindicator7
-sudo wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
-sudo dpkg -i /tmp/google-chrome*.deb
 
 virtualenv -p python3 $VENV_PATH/pgadmin4
 #https://www.pgadmin.org/download/pgadmin-4-python-wheel/
@@ -64,6 +55,12 @@ winecfg
 # add bitmap font to HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Fonts
 # Z:\usr\local\share\fonts\Dina_r400-8.bdf
 wine regedit
+
+
+# Chrome setup
+sudo apt-get install libxss1 libappindicator1 libindicator7
+sudo wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
+sudo dpkg -i /tmp/google-chrome*.deb
 
 # docker
 # https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
