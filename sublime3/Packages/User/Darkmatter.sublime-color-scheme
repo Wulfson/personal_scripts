@@ -1,0 +1,127 @@
+// https://github.com/patrickemuller/Sublime-Darkmatter-Theme
+// https://github.com/sublimehq/Packages/blob/master/Python/Python.sublime-syntax
+// https://www.sublimetext.com/docs/3/color_schemes.html
+// https://www.sublimetext.com/docs/3/scope_naming.html
+{
+    "globals": {
+        "brackets_options": "foreground",
+        "brackets_foreground": "fuchsia",
+        "bracket_contents_options": "foreground",
+        "bracket_contents_foreground": "fuchsia",
+        "foreground": "#c3d7f5",
+        "highlight": "fuchsia",
+        "line_highlight": "#222a33",
+    },
+    "rules": [
+        {
+            "name": "All comments",
+            "scope": "comment",
+            "foreground": "lime"
+        },
+        {
+            "name": "Numeric constant",
+            "scope": "constant.numeric",
+            "foreground": "mediumslateblue"
+        },
+        {
+            "name": "Language-specific constant",
+            "scope": "constant.other",
+            "foreground": "yellow"
+        },
+        {
+            "name": "Formatting placeholder",
+            "scope": "constant.other.placeholder",
+            "foreground": "darkorchid"
+        },
+        {
+            "name": "All strings",
+            "scope": "string",
+            "foreground": "orchid"
+        },
+        {
+            "name": "String punctuation begin",
+            "scope": "punctuation.definition.string.begin",
+            "foreground": "plum"
+        },
+        {
+            "name": "String punctuation end",
+            "scope": "punctuation.definition.string.end",
+            "foreground": "plum"
+        },
+        {
+            "name": "Keywords",
+            "scope": "keyword.control",
+            "foreground": "turquoise"
+        },
+        {
+            "name": "All operators",
+            "scope": "keyword.operator",
+            "foreground": "white"
+        },
+        {
+            "name": "Logical operators",
+            "scope": "keyword.operator.logical",
+            "foreground": "darkturquoise"
+        },
+        {
+            "name": "String interpolation",
+            "scope": "meta.interpolation",
+            "foreground": "darkorchid",
+            "font_style": ""
+        },
+        {
+            "name": "Storage types",
+            "scope": "storage.type",
+            "foreground": "mediumslateblue",
+            "font_style": ""
+        },
+        {
+            "name": "Built-in functions",
+            "scope": "support.function",
+            "foreground": "salmon"
+        },
+        {
+            "name": "Built-in modules",
+            "scope": "support.module",
+            "foreground": "salmon"
+        },
+        {
+            "name": "Built-in types",
+            "scope": "support.type",
+            "foreground": "chocolate",
+            "font_style": ""
+        },
+        {
+            "name": "Built-in classes",
+            "scope": "support.class",
+            "foreground": "orange",
+            "font_style": ""
+        },
+        {
+            "name": "Method invocations",
+            "scope": "variable.function",
+            "foreground": "wheat"
+        },
+        {
+            "name": "Method parameters",
+            "scope": "variable.parameter",
+            "foreground": "gainsboro",
+            "font_style": ""
+        },
+        {
+            "name": "Other variables",
+            "scope": "variable.other",
+            "foreground": "mediumpurple"
+        },
+        {
+            "name": "Magic variables",
+            "scope": "support.variable.magic",
+            "foreground": "yellow"
+        },
+        {
+            "name": "Python docstrings",
+            "scope": "comment.block.documentation.python",
+            "foreground": "mediumspringgreen"
+        },
+    ]	
+}
