@@ -1,0 +1,33 @@
+[user]
+    name = Wulfson
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+    autocrlf = input
+[merge]
+    tool = vimdiff
+[color]
+    ui = auto
+[rerere]
+    enabled = true
+    autoupdate = true
+[github]
+    user = Wulfson
+[alias]
+    st = status
+    ci = commit -va
+    br = branch
+    co = checkout
+    di = diff
+    lg = log -p
+    unmerge = reset --merge ORIG_HEAD
+    last = log -1 HEAD
+    up = pull -v
+    bls = branch -rav
+    trim = fetch -p
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)%ad%C(red)%d\\ %C(reset)%s\\ %C(blue)[%cn]" --decorate --date=short
+    ll = log --pretty=format:"%C(green)%h\\ %C(yellow)%ad%C(red)%d\\ %C(reset)%s\\ %C(blue)[%cn]" --decorate --date=relative --numstat
+
+[push]
+    default = simple
+
