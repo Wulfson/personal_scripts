@@ -34,6 +34,10 @@ sudo cp $REPO_PATH/work/fonts/50-enable-dina-bitmap.conf /etc/fonts/conf.d/50-en
 sudo cp $OLD_HOME/fonts/Dina_r400-* /usr/local/share/fonts
 sudo fc-cache -fv
 
+# Sublime
+cd ~/.config/sublime-text-3/Packages
+git clone https://github.com/mgussekloo/Tabright.git
+
 # Wine repo
 sudo wget -P /tmp -nc https://dl.winehq.org/wine-builds/winehq.key
 sudo apt-key add /tmp/winehq.key

@@ -123,5 +123,10 @@
             "scope": "comment.block.documentation.python",
             "foreground": "mediumspringgreen"
         },
-    ]	
+        {
+            "name": "Python docstrings",
+            "scope": "punctuation.definition.annotation.python",
+            "foreground": "tomato"
+        },
+    ]
 }
