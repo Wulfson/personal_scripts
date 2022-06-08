@@ -1,0 +1,15 @@
+[
+	{ "keys": ["ctrl+f5"], "command": "refresh_folder_list" },
+
+	// Case switching
+	{ "keys": ["ctrl+k", "ctrl+shift+u"], "command": "soft_redo" },
+	{ "keys": ["ctrl+k", "ctrl+u"], "command": "soft_undo" },
+	{ "keys": ["ctrl+k", "ctrl+l"], "command": "expand_selection", "args": {"to": "line"} },
+	{ "keys": ["ctrl+shift+u"], "command": "title_case" },
+	{ "keys": ["ctrl+u"], "command": "upper_case" },
+	{ "keys": ["ctrl+l"], "command": "lower_case" },
+
+	// Sane tab switching
+	{ "keys": ["ctrl+tab"], "command": "next_view" },
+	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+]
