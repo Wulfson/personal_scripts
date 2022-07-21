@@ -1,0 +1,4 @@
+#!/bin/sh
+# Sync fetched files to local from a remote location that is running file_fetch
+rsync -e 'ssh -p 22' -avzp 1.2.3.4:/home/user/incoming/ /home/user/file_fetch/
+find /home/user/file_fetch -name '*.extension' -mmin -30 -exec cp {} /home/user/location \;
