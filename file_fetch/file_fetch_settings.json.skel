@@ -1,0 +1,25 @@
+{
+    "save_to": "/path/to/save/to",
+    "tracking_file": "./file_fetch_tracking.json",
+    "file_link_label": "string",
+    "res_value": "int",
+    "api_base": "https://example.com/api/?id=",
+    "url_list": {
+        "sunday": [
+            "https://example.com/thing1/",
+            "https://example.com/thing2/"
+        ],
+        "monday": [
+        ],
+        "tuesday": [
+        ],
+        "wednesday": [
+        ],
+        "thursday": [
+        ],
+        "friday": [
+        ],
+        "saturday": [
+        ]
+    }
+}
