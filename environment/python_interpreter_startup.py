@@ -10,8 +10,9 @@ from enum import Enum
 
 
 # Set interpreter prompts
-sys.ps1 = "\033[0;32m>> \033[0m"
-sys.ps2 = "\033[0;34m.. \033[0m"
+# The \001 and \002 fix history scrollback; see https://stackoverflow.com/questions/9468435/how-to-fix-column-calculation-in-python-readline-if-using-color-prompt
+sys.ps1 = "\001\033[0;32m\002>> \001\033[0m\002"
+sys.ps2 = "\001\033[0;34m\002.. \001\033[0m\002"
 
 
 class Printer(Enum):
