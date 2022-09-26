@@ -1,0 +1,3 @@
+sudo update-alternatives --install "$(which editor)" editor "$(which vim)" 15
+sudo update-alternatives --config editor
+# choose vim
