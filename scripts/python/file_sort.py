@@ -103,7 +103,7 @@ def move_file(args, source_file, new_dir, target_name):
 
     debug(args.debug, "{0}\n => {1}".format(path.join(args.source, source_file), new_path))
     if args.commit:
-        shutil.move(os.path.join(args.source, source_file), new_path)
+        shutil.move(path.join(args.source, source_file), new_path)
 
 
 def main(args):
