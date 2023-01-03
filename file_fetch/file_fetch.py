@@ -120,6 +120,9 @@ def main(args):
     all_tracking = read_file(settings["tracking_file"])
 
     for curr_url in settings["url_list"][weekday]:
+        if not curr_url:
+            continue
+
         url_parts = curr_url.split("/")
         for i in range(0, len(url_parts)):
             tmp = url_parts.pop()
