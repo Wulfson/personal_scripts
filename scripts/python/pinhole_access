@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+from argparse import ArgumentParser, ArgumentTypeError, RawTextHelpFormatter
+from textwrap import dedent
+
+import boto3
+
+
+def security_group_id(val):
+    if not val.startswith("sg-"):
+        raise ArgumentTypeError("{0} is not a valid Security Group ID".format(val))
+
+    return val.lower()
+
+
+def arg_parser():
+    """Set up CLI argument parsing"""
+    parser = ArgumentParser(
+        description=dedent(
+            """
+            Adds an IP address to an AWS Security Group
+
+            Example Usage:
+                AWS_ACCESS_KEY_ID=something AWS_SECRET_ACCESS_KEY=somethingsomething ./pinhole_access -d "mydomain.gotdns.com" -g sg-1234 -l Home
+
+            Requirements:
+                Python 3.8+ is required
+                pip3 install boto3
+            """
+        ),
+        formatter_class=RawTextHelpFormatter,
+        epilog="\n\n",
+    )
+
+    parser.add_argument(
+        "-d",
+        "--domain",
+        type=str,
+        required=True,
+        help=dedent(
+            """
+            Domain to dig to find IP address
+            Assumes that only one IP address will be returned
+            """
+        ).strip(),
+    )
+
+    parser.add_argument(
+        "-g",
+        "--group-id",
+        type=security_group_id,
+        required=True,
+        help=dedent(
+            """
+            AWS Security Group ID
+            """
+        ).strip(),
+    )
+
+    parser.add_argument(
+        "-l",
+        "--label",
+        type=str,
+        required=True,
+        help=dedent(
+            """
+            The label of the SG rule to set
+            Will replace any rule that currently has this label
+            """
+        ).strip(),
+    )
+
+    parser.add_argument(
+        "--region",
+        default="us-east-1",
+        type=str.lower,
+        help=dedent(
+            """
+            AWS Region
+            """
+        ).strip(),
+    )
+
+    args = parser.parse_args()
+
+    args.client = boto3.client("ec2", region_name=args.region)
+
+    return args
+
+
+def cli_clean(output):
+    """Cleans up output from subprocesses"""
+    return output.decode("UTF-8").strip()
+
+
+def get_ip_address(domain):
+    cmd = ["dig", "+short", domain]
+    res = subprocess.run(cmd, stdout=subprocess.PIPE)
+    if res.returncode:
+        Printer.red("[{0}] Command '{1}' failed".format(res.returncode, " ".join(cmd)))
+        exit(1)
+    else:
+        return cli_clean(res.stdout)
+
+
+def set_pinhole_rule(client, group_id, ip_address, label):
+    curr_rules = client.describe_security_group_rules(
+        Filters=[{"Name": "group-id", "Values": [group_id]}]
+    )["SecurityGroupRules"]
+
+    rule_id = next(
+        (x["SecurityGroupRuleId"] for x in curr_rules if x.get("Description") == label),
+        None,
+    )
+
+    cidr_ip = ip_address + "/32"
+
+    if rule_id:
+        resp = client.modify_security_group_rules(
+            GroupId=group_id,
+            SecurityGroupRules=[
+                {
+                    "SecurityGroupRuleId": rule_id,
+                    "SecurityGroupRule": {
+                        "Description": label,
+                        "IpProtocol": "tcp",
+                        "FromPort": 22,
+                        "ToPort": 22,
+                        "CidrIpv4": cidr_ip,
+                    }
+                }
+            ],
+        )
+    else:
+        resp = client.authorize_security_group_ingress(
+            GroupId=group_id,
+            IpPermissions=[
+                {
+                    "IpRanges": [{"CidrIp": cidr_ip, "Description": label}],
+                    "IpProtocol": "tcp",
+                    "FromPort": 22,
+                    "ToPort": 22,
+                }
+            ],
+        )
+
+    return resp["Return"]
+
+
+def main(args):
+    ip_address = get_ip_address(args["domain"])
+    if set_pinhole_rule(args["client"], args["group_id"], ip_address, args["label"]):
+        print("Success!")
+
+
+if __name__ == "__main__":
+    main(vars(arg_parser()))

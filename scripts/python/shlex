@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+# Tokenizes a shell command into an arg list for use with the subprocess module
+
+import shlex
+print("Enter command to be processed:")
+command_line = input()
+args = shlex.split(command_line)
+print(args)
