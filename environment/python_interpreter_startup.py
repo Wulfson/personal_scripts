@@ -21,6 +21,7 @@ class Printer(Enum):
     Usage: Printer.{color}("Message")
     Example: Printer.red("Everything is horrible! What have you done!?")
     """
+
     red = "\033[1;31m"
     green = "\033[1;32m"
     yellow = "\033[1;33m"
@@ -29,6 +30,9 @@ class Printer(Enum):
     cyan = "\033[1;36m"
     default = "\033[0m"
     reset = "\033[0m"
+
+    def __str__(self):
+        return self.value
 
     def __call__(self, *messages):
         print(
@@ -39,6 +43,11 @@ class Printer(Enum):
             ),
             file=sys.stderr,
         )
+
+    @classmethod
+    def custom(cls, *messages):
+        for msg in messages:
+            cls.default(msg.format(**Printer._member_map_))
 
 
 try:

@@ -1,0 +1,9 @@
+[tool.isort]
+profile = "black"
+line_length = 120
+atomic = true
+lines_between_types = 1
+lines_after_imports = 2
+
+[tool.black]
+line_length = 120
