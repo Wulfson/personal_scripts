@@ -5,6 +5,9 @@
 	],
 	"installed_packages":
 	[
+		"Indent XML",
+		"LSP",
+		"LSP-copilot",
 		"Package Control",
 		"Pretty JSON",
 		"TOML",
