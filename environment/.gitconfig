@@ -18,6 +18,7 @@
     ci = commit -va
     br = branch
     co = checkout
+    reco = "!f() { git checkout master && git branch -D \"$1\" && git pull && git checkout \"$1\"; }; f"
     di = diff
     lg = log -p
     unmerge = reset --merge ORIG_HEAD
@@ -25,9 +26,7 @@
     up = pull -v
     bls = branch -rav
     trim = fetch -p
-    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)%ad%C(red)%d\\ %C(reset)%s\\ %C(blue)[%cn]" --decorate --date=short
-    ll = log --pretty=format:"%C(green)%h\\ %C(yellow)%ad%C(red)%d\\ %C(reset)%s\\ %C(blue)[%cn]" --decorate --date=relative --numstat
-
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)%ad%C(red)%d\\ %C(reset)%s\\ %C(blue)[%an]" --decorate --date=short
+    ll = log --pretty=format:"%C(green)%h\\ %C(yellow)%ad%C(red)%d\\ %C(reset)%s\\ %C(blue)[%an]" --decorate --date=relative --numstat
 [push]
     default = simple
-

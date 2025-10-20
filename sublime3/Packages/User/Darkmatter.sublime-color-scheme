@@ -128,5 +128,10 @@
             "scope": "punctuation.definition.annotation.python",
             "foreground": "tomato"
         },
+        {
+            "name": "Dockerfile From",
+            "scope": "keyword.control.from.dockerfile",
+            "foreground": "#d14048"
+        },
     ]
 }
